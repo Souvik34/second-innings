@@ -4,7 +4,15 @@
 
 
 
-An all in one web application project to get rid of old-age home searching with parent adoption feature and a lot more.
+ Second Innings is an all-in-one web application designed to simplify the process of finding old-age homes while introducing a unique parent adoption feature. Built using React, this platform bridges the gap between elderly individuals in need of care and compassionate individuals or families willing to support them.
+
+Key Features:
+✅ Old-Age Home Directory – Easily search and explore verified old-age homes with details and reviews.
+✅ Parent Adoption Program – A dedicated feature allowing individuals to support or “adopt” elderly persons in need.
+✅ Community & Support – Connect with caregivers, volunteers, and organizations offering assistance.
+✅ Secure & User-Friendly – Intuitive interface with accessibility in mind for both elders and adopters.
+
+This project aims to enhance elderly care accessibility while promoting a culture of compassion and inclusivity. 🚀
 
 <br>
 
