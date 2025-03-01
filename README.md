@@ -1,8 +1,8 @@
 
 
-# 👴🏻 Project [SECOND INNINGS](https://github.com/)
+#  Project [SECOND INNINGS](https://github.com/)
 
-### 💻 By: [Team MGNEER](https://github.com/) <br><br>
+
 
 An all in one web application project to get rid of old-age home searching with parent adoption feature and a lot more.
 
