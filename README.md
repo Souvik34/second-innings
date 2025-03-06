@@ -5,9 +5,13 @@ Second Innings is an all-in-one web application designed to simplify the process
 ### ✨ Key Features
 
 ✅ Old-Age Home Directory – Easily search and explore verified old-age homes with details and reviews.
+
 ✅ Parent Adoption Program – A dedicated feature allowing individuals to support or “adopt” elderly persons in need.
+
 ✅ Community & Support – Connect with caregivers, volunteers, and organizations offering assistance.
+
 ✅ Secure & User-Friendly – Intuitive interface with accessibility in mind for both elders and adopters.
+
 ✅ Interactive Maps – Locate nearby old-age homes, volunteers, and NGOs with an integrated mapping system.
 
 🚀 This project aims to enhance elderly care accessibility while promoting a culture of compassion and inclusivity.
