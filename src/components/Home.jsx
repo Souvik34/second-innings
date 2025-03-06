@@ -9,7 +9,7 @@ import { Carousel } from "react-bootstrap";
 import "swiper/css/bundle";
 
 import Testimonial from "./Testimonial";
-
+import Domains from "./Domains";
 
 import { Link } from "react-router-dom";
 import AIWriter from "react-aiwriter";
@@ -112,7 +112,7 @@ export default function Home() {
         </div>
       </div>
  
-
+      <Domains></Domains>
      
       {/* TESTIMONIAL */}
       <Testimonial></Testimonial>

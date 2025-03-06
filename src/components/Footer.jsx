@@ -128,8 +128,7 @@ export default function Footer() {
                 <h6 className="text-uppercase fw-bold">Contact Us</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr4" />
                 <p>
-                  <i className="fa-solid fa-map-location-dot mr-3"></i> UIT
-                  Campus, Burdwan
+                  <i className="fa-solid fa-map-location-dot mr-3"></i> Kolkata
                   <p> West Bengal, India</p>
                 </p>
                 <p>
@@ -197,7 +196,7 @@ export default function Footer() {
         <div className="text-center p-3 bg-muted text-muted">
           © 2023 Copyright: &nbsp;
           <a className="text-muted" href="/">
-            Team MGNEER
+            Second Innings
           </a>
         </div>
       </footer>
