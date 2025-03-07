@@ -20,6 +20,8 @@ import SignIn from "./components/Signin";
 import Lottie from "lottie-react";
 import lottie from "./components/images/loading.json";
 import lottie1 from "./components/images/load.png";
+
+
 // import GetLocation from "./components/GetLocation";
 // import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
