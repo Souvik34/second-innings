@@ -2,7 +2,7 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import graphic from "./images/contact-anim.gif";
 import "./styles/signin.css";
-
+import AIWriter from "react-aiwriter";
 
 export default function Signin() {
   const refForm = useRef();

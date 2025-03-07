@@ -7,12 +7,11 @@ import Home from "./components/Home";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
-// import About from "./components/About";
-import Domains from "./components/Domains";
+import About from "./components/About";
 import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import Gethome from "./components/Gethome";
-import Gallery from "./components/Gallery";
+// import Gallery from "./components/Gallery";
 import Adopt from "./components/Adopt";
 import Volunteer from "./components/Volunteer";
 // import Faq from "./components/Faq";
@@ -20,6 +19,7 @@ import SignUp from "./components/Signup";
 import SignIn from "./components/Signin";
 import Lottie from "lottie-react";
 import lottie from "./components/images/loading.json";
+import lottie1 from "./components/images/load.png";
 // import GetLocation from "./components/GetLocation";
 // import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
@@ -62,18 +62,13 @@ function App() {
               path="gethome"
               element={<Gethome key="gethome" />}
             ></Route>
-            <Route
-              exact
-              path="gallery"
-              element={<Gallery key="gallery" />}
-            ></Route>
+          
             <Route
               exact
               path="adopt"
               element={<Adopt key="adopt" />}
             ></Route>
-      
-          
+           
             <Route
               exact
               path="signin"

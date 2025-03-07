@@ -75,7 +75,47 @@ export default function Footer() {
                 </p>
               </div>
 
-             
+              {/* <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
+                <h6 className="text-uppercase fw-bold">Website Developer</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto hr2" />
+                <p>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/sanjibkumardas-webdev/"
+                    className="text-dark"
+                  >
+                    Developed with ❤ <br />
+                    By <br />
+                    Team
+                  </a>
+                </p>
+                <br />
+                <h6 className="text-uppercase fw-bold">Faculty Advisor</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto hr2" />
+                <p>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/sumit-gupta-sgp-168109151/"
+                    className="text-dark"
+                  >
+                    Prof. Sumit Gupta
+                    <br />
+                    Faculty Advisor, The Code Bird
+                    <br />
+                    Assistant Professor, CSE, UIT, BU
+                  </a>
+                </p>
+                ALAN AI
+                <h6 className="fw-bold mt-4">Alan AI</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto hr2" />
+                <p className="just">
+                  Alan AI - Fully voice automated auditory bot that will read
+                  out every minute details of a place that a tourist asks for
+                  and specially visually impair tourists.
+                </p>
+              </div> */}
 
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
                 <h6 className="text-uppercase fw-bold">Nav links</h6>
@@ -111,7 +151,7 @@ export default function Footer() {
                   </Link>
                 </p>
                 
-                <p>
+                {/* <p>
                   <Link
                     to="?"
                     className="text-dark"
@@ -121,19 +161,21 @@ export default function Footer() {
                   >
                     Helpline
                   </Link>
-                </p> 
+                </p> */}
+                {/* Chatbot */}
               </div>
 
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-4 last">
                 <h6 className="text-uppercase fw-bold">Contact Us</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr4" />
                 <p>
-                  <i className="fa-solid fa-map-location-dot mr-3"></i> Kolkata
+                  <i className="fa-solid fa-map-location-dot mr-3"></i> UIT
+                  Campus, Burdwan
                   <p> West Bengal, India</p>
                 </p>
                 <p>
                   <i className="fas fa-envelope mr-3"></i>{" "}
-                  secondinnings@gmail.com
+                  secondinnings.mgneer@gmail.com
                 </p>
                 <p>
                   <i className="fas fa-phone mr-3"></i>{" "}
@@ -196,7 +238,7 @@ export default function Footer() {
         <div className="text-center p-3 bg-muted text-muted">
           © 2023 Copyright: &nbsp;
           <a className="text-muted" href="/">
-            Second Innings
+            Team MGNEER
           </a>
         </div>
       </footer>

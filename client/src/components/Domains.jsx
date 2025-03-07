@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles/domains.css";
 
+
 import food from "./images/S1.jpg";
 import train from "./images/S2.jpg";
 

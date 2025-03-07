@@ -14,7 +14,7 @@ export default function Navbar() {
           <Link className="navbar-brand col-md-1 mx-1 text-center" to="/">
             <p className="navMainTxt mt-3 fw-bold fs-3">
               SECOND INNINGS
-             
+              {/* <p style={{ fontSize: "12px" }}>The Coding Club of UIT, BU</p> */}
             </p>
           </Link>
           <button
