@@ -23,8 +23,7 @@
         "react-scripts": "5.0.1",
         "react-toastify": "^9.1.1",
         "swiper": "^8.4.5",
-    "vite": "^4.3.9",
-
+        "vite": "^4.3.9",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
@@ -32,10 +31,11 @@
         "deploy": "gh-pages -d build",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "vite build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "dev": "vite"
+        "dev": "vite",
+        "serve": "vite preview"
     },
     "eslintConfig": {
         "extends": [
