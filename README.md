@@ -50,7 +50,7 @@ git clone https://github.com/Souvik34/Second-Innings.git
 2. Navigate to the Project Directory:
 
 ```sh 
-cd Second-Innings
+cd Second-Innings/client
 ```
 3. Install Dependencies:
 ```sh
