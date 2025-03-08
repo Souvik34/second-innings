@@ -72,6 +72,9 @@ yarn dev
 The application will run at ```http://localhost:3000/```.
 
 
+## Screenshot
+![ScreenShot for Desktop devices](Screenshots/localhost_5173_.png)
+
 
 ## 🌍 Open Source Contribution
 
