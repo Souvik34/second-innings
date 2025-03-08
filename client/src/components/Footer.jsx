@@ -169,13 +169,12 @@ export default function Footer() {
                 <h6 className="text-uppercase fw-bold">Contact Us</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr4" />
                 <p>
-                  <i className="fa-solid fa-map-location-dot mr-3"></i> UIT
-                  Campus, Burdwan
+                  <i className="fa-solid fa-map-location-dot mr-3"></i> Kolkata
                   <p> West Bengal, India</p>
                 </p>
                 <p>
                   <i className="fas fa-envelope mr-3"></i>{" "}
-                  secondinnings.mgneer@gmail.com
+                  secondinnings@gmail.com
                 </p>
                 <p>
                   <i className="fas fa-phone mr-3"></i>{" "}
@@ -186,7 +185,7 @@ export default function Footer() {
                 <p>
                 <div>
             <a
-              href="https://www.facebook.com/uit.buruniv.ac.in/"
+              href="https://www.facebook.com/"
               target="_blank"
               rel="noreferrer"
               className="text-dark me-4"
@@ -203,7 +202,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.linkedin.com/school/uitbu/"
+              href="https://www.linkedin.com/"
               target="_blank"
               rel="noreferrer"
               className="text-dark me-4"
@@ -236,9 +235,9 @@ export default function Footer() {
         </section>
 
         <div className="text-center p-3 bg-muted text-muted">
-          © 2023 Copyright: &nbsp;
+          © 2025 Copyright: &nbsp;
           <a className="text-muted" href="/">
-            Team MGNEER
+            Second Innings
           </a>
         </div>
       </footer>
