@@ -68,7 +68,24 @@ or
 ```sh
 yarn dev
 ```
-5. Open in Browser:
+## Backend Setup
+1. Navigate to the Backend Directory:
+   ```sh
+   cd ../server
+   ```
+2. Install Dependencies:
+```sh
+npm install
+```
+3. Set Up Environment Variables:
+Create a .env file in the server directory and configure the required variables (e.g., database URL, JWT secret, etc.).
+
+4. Start the Backend Server:
+    ```sh
+    npm run dev
+    ```
+
+6. Open in Browser:
 The application will run at ```http://localhost:3000/```.
 
 
