@@ -1,4 +1,96 @@
-.err-anim {
-  background-repeat: no-repeat;
-  background-size: cover;
+
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #515ceb, #1d58c0);
+  color: white;
+  text-align: center;
+}
+
+
+.error-gif-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-gif {
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.error-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.error-description {
+  font-size: 1.6rem;
+  margin: 1rem 0 2rem;
+  max-width: 400px;
+}
+
+.error-button {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  color: white;
+  background: #ff4d4d;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.error-button:hover {
+  background: #d33838;
+  color: beige;
+}
+
+
+@media (max-width: 768px) {
+  .error-page {
+    flex-direction: column;
+  }
+
+  .error-gif {
+    width: 60%;
+    max-width: 250px;
+  }
+
+  .error-content {
+    padding: 1rem;
+  }
+
+  .error-code {
+    font-size: 4rem;
+  }
+
+  .error-message {
+    font-size: 2rem;
+  }
+
+  .error-description {
+    font-size: 1.4rem;
+  }
 }
