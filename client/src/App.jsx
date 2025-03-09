@@ -11,7 +11,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import Gethome from "./components/Gethome";
-// import Gallery from "./components/Gallery";
+ import Gallery from "./components/gallery";
 import Adopt from "./components/Adopt";
 import Volunteer from "./components/Volunteer";
 // import Faq from "./components/Faq";
@@ -70,7 +70,7 @@ function App() {
               path="adopt"
               element={<Adopt key="adopt" />}
             ></Route>
-           
+             <Route exact path="gallery" element= {<Gallery/>}/>
             <Route
               exact
               path="signin"
