@@ -1,66 +1,65 @@
-.content, .hero, .main-header, .gallery > * {
-	will-change: transform;
+/* Gallery Container */
+.gallery-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
 }
-body {
-	background:#fff;
-	background-size: 50px;
-	color: #fafafa;
-	font-family: raleway-c;
-	overflow-x: hidden;
+
+/* Gallery Title */
+.gallery-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #e41313;
+  font-weight: 800;
 }
-.hero {
-	width: calc(var(--index) * 30);
-	position: absolute;
-	left: 37vw;
-	top: 22vh;
-	z-index: -1;
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
 }
-.main-header {
-	height: 100vh;
+
+/* Gallery Card */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.container {
-	padding: 0 7vw;
+
+/* Image Styling */
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
 }
-.main-title {
-	font-size: calc(var(--index) * 8);
-	position: absolute;
-	width: min-content;
-	bottom: 12vh;
-	line-height: .9;
+
+/* Hover Effects */
+.gallery-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
-.gallery {
-	display: flex;
-	padding: calc(var(--index) * 8) 0;
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.1);
 }
-.gallery > * {
-	flex: 1;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
-.gallery__item {
-	max-width: calc(var(--index) * 21);
-	margin-bottom: var(--gallery-gap);
-	max-height: 180vh;
-	border-radius: 8px;
-}
-.gallery__left {
-	margin-top: calc(var(--gallery-gap) * 1.75);
-}
-.gallery__right .gallery__item {
-	margin: 0;
-	margin-top: var(--gallery-gap);
-}
-.text-block {
-	color: var(--color-text);
-	position: relative;
-}
-.text-block__h {
-	font-size: 2rem;
-	line-height: 2.4rem;
-	color: var(--color-header);
-	margin-bottom: 1.5rem;
-}
-.text-block__p {
-	line-height: 1.75;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .gallery-image {
+    height: 200px;
+  }
 }
