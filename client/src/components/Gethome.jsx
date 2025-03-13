@@ -3,7 +3,9 @@ import "./styles/gethome.css"
 import pic1 from "./images/Home1.png"
 import pic2 from "./images/Home2.png"
 import pic3 from "./images/Home3.png"
+import { useTheme } from '../context/ThemeContext'
 function Gethome() {
+  const { theme } = useTheme();
   return (
     <div>
         <h2 className="heading my-4">
@@ -33,7 +35,7 @@ function Gethome() {
           </div>
         </h2>
       <div  className="get-home-container">
-        <div  className="get-home-card" style={{color:"#009688"}}>
+        <div  className={`get-home-card bg-${theme}`} style={{color:"#009688"}}>
             <div  className="imgBx">
                 <img src={pic1} alt=""/>
             </div>
@@ -53,7 +55,7 @@ function Gethome() {
                 <a href="*">Read More</a>
             </div>
         </div>
-        <div  className="get-home-card" style={{color:"#ff3e7f"}}>
+        <div  className={`get-home-card bg-${theme}`} style={{color:"#ff3e7f"}}>
             <div  className="imgBx">
                 <img src={pic2} alt=""/>
             </div>
@@ -74,7 +76,7 @@ function Gethome() {
                 <a href="*">Read More</a>
             </div>
         </div>
-        <div  className="get-home-card" style={{color:"#03a9f4"}}>
+        <div  className={`get-home-card bg-${theme}`} style={{color:"#03a9f4"}}>
             <div  className="imgBx">
                 <img src={pic3} alt=""/>
             </div>

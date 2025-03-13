@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react'
-
+import React from 'react'
+import { useTheme } from "../context/ThemeContext";
 import "./styles/adopt.css";
 
 function Adopt() {
+  const { theme } = useTheme();
   return (
    <>
    <div className="container">
@@ -43,51 +44,51 @@ function Adopt() {
   <div  className="row mb-4">
     <div  className="col">
       <div  className="form-inline">
-        <input type="text" id="form6Example1"  className="form-control" placeholder='First Name' />
+        <input type="text" id="form6Example1"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='First Name' />
         <label  className="form-label" for="form6Example1"></label>
       </div>
     </div>
     <div  className="col">
       <div  className="form-outline">
-        <input type="text" id="form6Example2"  className="form-control" placeholder='Last Name' />
+        <input type="text" id="form6Example2"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Last Name' />
         <label  className="form-label" for="form6Example2"></label>
       </div>
     </div>
   </div>
   <div  className="form-outline mb-4">
-    <input type="text" id="form6Example3"  className="form-control" placeholder='Address line 1' />
+    <input type="text" id="form6Example3"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Address line 1' />
     <label  className="form-label" for="form6Example3"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="text" id="form6Example4"  className="form-control" placeholder='Address line 2' />
+    <input type="text" id="form6Example4"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Address line 2' />
     <label  className="form-label" for="form6Example4"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="text" id="form6Example4"  className="form-control" placeholder='City/Town' />
+    <input type="text" id="form6Example4"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='City/Town' />
     <label  className="form-label" for="form6Example4"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="Number" id="form6Example4"  className="form-control" placeholder='Postcode' />
+    <input type="Number" id="form6Example4"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Postcode' />
     <label  className="form-label" for="form6Example4"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="email" id="form6Example5"  className="form-control" placeholder='Email' />
+    <input type="email" id="form6Example5"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Email' />
     <label  className="form-label" for="form6Example5"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="number" id="form6Example6"  className="form-control" placeholder='Phone' />
+    <input type="number" id="form6Example6"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Phone' />
     <label  className="form-label" for="form6Example6"></label>
   </div>
   <div  className="form-outline mb-4">
-    <input type="number" id="form6Example6"  className="form-control" placeholder='Annual Income' />
+    <input type="number" id="form6Example6"  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} placeholder='Annual Income' />
     <label  className="form-label" for="form6Example6"></label>
   </div>
   <div  className="form-outline mb-4">
-    <textarea  className="form-control" id="form6Example7" rows="4" placeholder='Additional Information' ></textarea>
+    <textarea  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} id="form6Example7" rows="4" placeholder='Additional Information' ></textarea>
     <label  className="form-label" for="form6Example7"></label>
   </div>
 
-  <a type="submit" href="mailto: secondinnings23@gmail.com" className="btn btn-primary btn-block mb-4">Submit</a>
+  <a type="submit" href="mailto: secondinnings23@gmail.com" className={`btn ${theme === "light" ? "btn-primary" : "btn-light"} btn-block mb-4`}>Submit</a>
 
   
 </form>

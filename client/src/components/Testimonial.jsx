@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./styles/testimonial.css";
 import pic from "./images/avatar.png";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Testimonial() {
   const testimonials = [
@@ -65,6 +66,8 @@ export default function Testimonial() {
     },
   ];
 
+  const { theme } = useTheme();
+
   return (
     <div className="container test">
       <h2 className="heading my-4">
@@ -91,7 +94,7 @@ export default function Testimonial() {
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="swiper-client">
+            <div className={`swiper-client bg-${theme} ${theme === "dark" ? "text-white" : "text-dark"}`}>
               <div className="mycard shadow rounded">
                 <p className="review-text">
                   <i className="fa-solid fa-quote-left quote" style={{ color: "#ff8a8a" }}></i>
