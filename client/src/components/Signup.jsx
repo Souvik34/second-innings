@@ -3,10 +3,12 @@ import emailjs from "@emailjs/browser";
 import graphic from "./images/contact-anim.gif";
 import "./styles/signin.css";
 import AIWriter from "react-aiwriter";
+import { useTheme } from "../context/ThemeContext";
 
 
 export default function SignUp() {
   const refForm = useRef();
+  const { theme } = useTheme();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ export default function SignUp() {
                 S<span className="text-warning">ign</span>Up
               </h1>
             </div>
-            <div className="sub-text my-5">
+            <div className="sub-text my-5 text-white">
               <AIWriter delay={125}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Mollitia dolorum voluptate, laudantium accusantium deserunt eos
@@ -51,7 +53,7 @@ export default function SignUp() {
                 <ul>
                   <li className="half">
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       name="name"
                       id=""
@@ -61,7 +63,7 @@ export default function SignUp() {
                   </li>
                   <li className="half">
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="email"
                       name="email"
                       id=""
@@ -71,7 +73,7 @@ export default function SignUp() {
                   </li>
                   <li>
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       placeholder="Password"
                       name="Type Password"
@@ -80,7 +82,7 @@ export default function SignUp() {
                   </li>
                   <li>
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       placeholder=" Confirm Password"
                       name="Confirm Password"
@@ -89,7 +91,7 @@ export default function SignUp() {
                   </li>
                   <li>
                     <textarea
-                      className="rounded"
+                      className={`rounded bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       placeholder="User type"
                       name="User type"
                       id=""
@@ -98,7 +100,7 @@ export default function SignUp() {
                       required
                     ></textarea>
                   </li>
-                  <div className="row mt-5">
+                  <div className="row mt-5 text-white">
                   <li> Already Have an Account?<a href="/signin"> SignIn Here.</a></li>
                   <li>
                     <input

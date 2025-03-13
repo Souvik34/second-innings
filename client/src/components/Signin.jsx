@@ -3,9 +3,12 @@ import emailjs from "@emailjs/browser";
 import graphic from "./images/contact-anim.gif";
 import "./styles/signin.css";
 import AIWriter from "react-aiwriter";
+import { useTheme } from "../context/ThemeContext";
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   const refForm = useRef();
+  const { theme } = useTheme();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -65,7 +68,7 @@ export default function Signin() {
                 <ul>
                   <li className="half">
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       name="name"
                       id=""
@@ -75,7 +78,7 @@ export default function Signin() {
                   </li>
                   <li className="half">
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="email"
                       name="email"
                       id=""
@@ -85,7 +88,7 @@ export default function Signin() {
                   </li>
                   <li>
                     <input
-                      className="rounded-pill"
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       placeholder="Password"
                       name="Type Password"
@@ -104,7 +107,7 @@ export default function Signin() {
                     ></textarea>
                   </li> */}
                   <div className="row mt-5 text-white fs-4">
-                  <li> New to Second Innings?<a href="/signup" className="fa-fade"> SignUp Here.</a></li>
+                  <li> New to Second Innings?<Link to="/signup" className="fa-fade"> SignUp Here.</Link></li>
                   <li>
                     <input
                       type="submit"

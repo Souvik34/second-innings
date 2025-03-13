@@ -85,12 +85,7 @@
     border: 2px solid transparent;
     border-bottom-color: rgba(0,0,0,.1);
 }
-.contact-form input::placeholder {
-  color:#222;
-}
-.contact-form textarea::placeholder {
-  color:#222;
-}
+
 .contact-form input {
     margin-bottom: 30px;
     font-size: 16px;

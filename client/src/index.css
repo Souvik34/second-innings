@@ -19,14 +19,18 @@ code {
 
   /* font-family: "M PLUS Code Latin",  "Open Sans"; */
   font-family: 'Shadows Into Light', cursive;
-  
+
 }
 
-.text-brown{
-  color:#925000;
+.text-brown {
+  color: #925000;
   font-family: 'Shadows Into Light', cursive;
 }
 
-.bg-red{
+.bg-red {
   background-color: #F4D65E;
+}
+
+.icon-symbol::after {
+  filter: invert(1);
 }

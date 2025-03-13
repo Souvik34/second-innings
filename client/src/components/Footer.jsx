@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/footer.css";
+import { useTheme } from "../context/ThemeContext";
 
 
 export default function Footer() {
+  const { theme } = useTheme()
+
   return (
     <div className="mt-5">
-      <section className="bg-light rounded">
-      <footer className="text-center text-lg-start text-dark">
+      <section className={`bg-${theme} rounded ${theme === 'light' ? 'text-dark' : 'text-white'}`}>
+      <footer className="text-center text-lg-start">
         {/* <section className="d-flex justify-content-between p-4 bg-light text-dark shadow rounded">
           <div className="me-5">
             <span>Be Our Member </span>
@@ -59,13 +62,13 @@ export default function Footer() {
           </div>
         </section> */}
 
-        <section className="bg-light shadow rounded border">
+        <section className={`bg-${theme} shadow rounded border ${theme === 'light' ? 'text-dark' : 'text-white'} border-${theme}`}>
           <div className="container text-center text-md-start mt-4">
             <div className="row mt-4">
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-4">
                 <h6 className=" fw-bold">Second Innings - A Perfect Home, Away From Home</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr1" />
-                <p className="text-dark">
+                <p className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                   <p className="just d-flex mx-auto">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Mollitia dolorum voluptate, laudantium accusantium deserunt eos
@@ -121,32 +124,32 @@ export default function Footer() {
                 <h6 className="text-uppercase fw-bold">Nav links</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr3" />
                 <p>
-                  <Link to="/" className="text-dark">
+                  <Link to="/" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     Home
                   </Link>
                 </p>
                 <p>
-                  <Link to="/gethome" className="text-dark">
+                  <Link to="/gethome" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     Find A Home
                   </Link>
                 </p>
                 <p>
-                  <Link to="/adopt" className="text-dark">
+                  <Link to="/adopt" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     Adopt Parents
                   </Link>
                 </p>
                 <p>
-                  <Link to="/gallery" className="text-dark">
+                  <Link to="/gallery" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     Gallery
                   </Link>
                 </p>
                 <p>
-                  <Link to="/contact" className="text-dark">
+                  <Link to="/contact" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     Contact Us
                   </Link>
                 </p>
                 <p>
-                  <Link to="/faq" className="text-dark">
+                  <Link to="/faq" className={`${theme === 'light' ? 'text-dark' : 'text-white'}`}>
                     FAQs
                   </Link>
                 </p>

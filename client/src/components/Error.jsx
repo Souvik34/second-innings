@@ -1,10 +1,17 @@
 import React from "react";
 import "./styles/error.css";
 import gif from "./images/err1.gif";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Error() {
+  const { theme } = useTheme();
   return (
-    <div className="error-page">
+    <div className="error-page" 
+    style={{
+      background: theme === "dark" ? "#121212" : "",
+      color: theme === "dark" ? "#f5f5f5" : "#121212",
+    }}
+    >
       {/* Left side - GIF */}
       <div className="error-gif-container">
         <img src={gif} alt="Error GIF" className="error-gif" />

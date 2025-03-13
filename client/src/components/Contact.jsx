@@ -1,7 +1,9 @@
 import React from "react";
 import "./styles/contact.css";
+import { useTheme } from "../context/ThemeContext";
 
 function Contact() {
+  const { theme } = useTheme();
   return (
     <>
       <section  className="section-bg" data-scroll-index="7">
@@ -66,7 +68,9 @@ function Contact() {
                           <input
                             type="text"
                             name="name"
-                             className="form-control rounded-pill shadow"
+                             className={`form-control rounded-pill ${
+                              theme === "dark" ? "bg-dark text-light" : "shadow bg-white text-dark"
+                            }`}
                             id="first-name"
                             placeholder="Enter Your Name"
                             required="required"
@@ -79,7 +83,9 @@ function Contact() {
                           <input
                             type="email"
                             name="email"
-                             className="form-control rounded-pill shadow"
+                            className={`form-control rounded-pill ${
+                              theme === "dark" ? "bg-dark text-light" : "shadow bg-white text-dark"
+                            }`}
                             id="email"
                             placeholder="Enter Your Email"
                             required="required"
@@ -92,14 +98,16 @@ function Contact() {
                         <div  className="form-group">
                           <div  className="form-floating">
                             <textarea
-                               className="form-control rounded shadow"
+                            className={`form-control rounded ${
+                              theme === "dark" ? "bg-dark text-light" : "shadow bg-white text-dark"
+                            }`}
                               placeholder="Enter Your Message *"
                               name="message"
                               id="floatingTextarea"
                               required="required"
                               autocomplete="off"
                             ></textarea>
-                            <label for="floatingTextarea"><span className="comm">Comments</span></label>
+                            <label for="floatingTextarea"><span className={`comm ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>Comments</span></label>
                           </div>
                         </div>
                       </div>
