@@ -19,7 +19,7 @@ export const sendVerificationEmail = async (user, verificationLink) => {
                 <style>
                     body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
                     .container { background-color: #ffffff; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
-                    .btn { display: inline-block; padding: 10px 20px; color: #fff; background-color: #28a745; text-decoration: none; border-radius: 5px; }
+                    .btn { display: inline-block; padding: 10px 20px; color: #fff; background-color: #333; text-decoration: none; border-radius: 5px; }
                     .footer { font-size: 12px; color: #777; margin-top: 20px; }
                 </style>
             </head>
