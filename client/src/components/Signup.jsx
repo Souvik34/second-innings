@@ -1,35 +1,106 @@
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import {  useEffect, useRef, useState } from "react";
 import graphic from "./images/contact-anim.gif";
 import "./styles/signin.css";
 import AIWriter from "react-aiwriter";
 import { useTheme } from "../context/ThemeContext";
-
+import { useDispatch, useSelector } from "react-redux"; 
+import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast'
+import { signup } from "../redux/action.js";
 
 export default function SignUp() {
   const refForm = useRef();
   const { theme } = useTheme();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "signin_service",
-        "template_4oa2a1b",
-        refForm.current,
-        "RJy48fHoAV--GvoIN"
-      )
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-      .then(
-        () => {
-          alert("Message has been sent successfully!!");
-          window.location.reload(false);
-        },
-        () => {
-          alert("Failed to send your message! Please try again...");
-        }
-      );
+  const { isAuthenticated } = useSelector((state) => state.user);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
+    phone: "",
+    location: "",
+    profileImage: null,
+    profileImagePreview: null, 
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setFormData((prev) => ({
+        ...prev,
+        profileImage: file,
+        profileImagePreview: imageUrl,
+      }));
+    }
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
+
+  const validateForm = () => {
+    const { name, email, password, confirmPassword, role } = formData;
+
+    if (!name || !email || !password || !confirmPassword || !role) {
+      console.log(formData);
+      toast.error("Please fill in all required fields!");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address!");
+      return false;
+    }
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long!");
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    if(!validateForm()) return;
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("password", formData.password);
+    formDataToSend.append("role", formData.role);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("location", formData.location);
+    if (formData.profileImage) {
+      formDataToSend.append("profile", formData.profileImage);
+    }
+
+    dispatch(signup(formDataToSend));
+  }
+
   return (
     <>
       <div className="main">
@@ -42,77 +113,134 @@ export default function SignUp() {
             </div>
             <div className="sub-text my-5 text-white">
               <AIWriter delay={125}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Mollitia dolorum voluptate, laudantium accusantium deserunt eos
-                explicabo, ipsa exercitationem asperiores voluptatum illum quasi
-                id, sequi impedit nobis. Doloremque corporis veritatis neque?
+                Join our platform and be a part of something amazing. Sign up
+                now and get started!
               </AIWriter>
             </div>
             <div className="signin-form mt-5">
-              <form ref={refForm} onSubmit={sendEmail}>
+              <form ref={refForm} onSubmit={handleSignup} encType="multipart/form-data">
                 <ul>
                   <li className="half">
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
+                      className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="text"
                       name="name"
-                      id=""
-                      placeholder="Name"
+                      placeholder="Full Name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       required
                     />
                   </li>
+
                   <li className="half">
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
+                      className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="email"
                       name="email"
-                      id=""
                       placeholder="Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                     />
                   </li>
+
                   <li>
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
-                      type="text"
+                      className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      type="password"
+                      name="password"
                       placeholder="Password"
-                      name="Type Password"
+                      value={formData.password}
+                      onChange={handleInputChange}
                       required
                     />
                   </li>
+
                   <li>
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
+                      className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Confirm Password"
+                      value={formData.confirmPassword}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </li>
+
+                  <li>
+                    <select
+                      className={`w-100 p-2 rounded bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      name="role"
+                      value={formData.role}
+                      onChange={handleInputChange}
+                      required
+                    >
+                      <option value="">Select Role</option>
+                      <option value="admin">Admin</option>
+                      <option value="volunteer">Volunteer</option>
+                      <option value="adopter">Adopter</option>
+                      <option value="user">User</option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <input
+                      className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="text"
-                      placeholder=" Confirm Password"
-                      name="Confirm Password"
-                      required
+                      name="phone"
+                      placeholder="Phone (Optional)"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                     />
                   </li>
-                  <li>
-                    <textarea
-                      className={`rounded bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
-                      placeholder="User type"
-                      name="User type"
-                      id=""
-                      cols="30"
-                      rows="10"
-                      required
-                    ></textarea>
-                  </li>
-                  <div className="row mt-5 text-white">
-                  <li> Already Have an Account?<a href="/signin"> SignIn Here.</a></li>
+
                   <li>
                     <input
-                      type="submit"
-                      className="flat-button button btn bg-warning"
-                      value="Submit"
+                      className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      type="text"
+                      name="location"
+                      placeholder="Location (Optional)"
+                      value={formData.location}
+                      onChange={handleInputChange}
                     />
                   </li>
+
+                  <li>
+                    <label className="text-white">Upload Profile Image</label>
+                    <br />
+                    <input
+                      type="file"
+                      name="profileImage"
+                      accept="image/*"
+                      className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      onChange={handleImageChange}
+                    />
+                  </li>
+
+                  {formData.profileImagePreview && (
+                    <li>
+                      <img
+                        src={formData.profileImagePreview}
+                        alt="Profile Preview"
+                        className="img-thumbnail mt-2"
+                        style={{ maxWidth: "150px", borderRadius: "10px" }}
+                      />
+                    </li>
+                  )}
+
+                  <div className="row mt-5 text-white">
+                    <li>
+                      Already have an account? <a href="/signin">Sign In Here.</a>
+                    </li>
+                    <li>
+                      <input
+                        type="submit"
+                        className="flat-button button btn bg-warning"
+                        value="Sign Up"
+                      />
+                    </li>
                   </div>
-                  
-                  
-                  
                 </ul>
               </form>
             </div>
@@ -122,9 +250,8 @@ export default function SignUp() {
             <img
               className="home-anim rounded img-fluid mx-auto d-flex"
               src={graphic}
-              alt=""
+              alt="Signup Animation"
             />
-
           </div>
         </div>
       </div>
