@@ -8,7 +8,7 @@ export const sendToken = (user, res, message, statusCode) => {
     const token = user.generateToken();
     res
         .status(statusCode)
-        .cookie("googletoken", token, {
+        .cookie("token", token, {
             ...cookieOptions,
             expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         })
