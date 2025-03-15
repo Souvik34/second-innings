@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`navbar navbar-expand-lg bg-gradient ${theme === "light" ? "bg-light navbar-light" : "bg-dark navbar-dark"} rounded`}>
+      <nav className={`navbar navbar-expand-lg bg-gradient ${theme === "light" ? "bg-light navbar-light" : "bg-dark"} rounded`}>
         <div className="container-fluid">
           <img className="mx-1" src={navpic} alt="" height="60" width="60" />
           <Link className="navbar-brand col-md-1 mx-1 text-center" to="/">
@@ -22,7 +22,7 @@ export default function Navbar() {
             </p>
           </Link>
           <button
-            className={`navbar-toggler bg-${theme}`}
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -30,7 +30,7 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className={`navbar-toggler-icon`}></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           <div

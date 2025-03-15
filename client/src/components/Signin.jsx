@@ -1,57 +1,35 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import graphic from "./images/contact-anim.gif";
 import "./styles/signin.css";
+import AIWriter from "react-aiwriter";
 import { useTheme } from "../context/ThemeContext";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/action.js"
-import toast from "react-hot-toast"
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   const refForm = useRef();
   const { theme } = useTheme();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.user);
 
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-
-  const handleLogin = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    if(!email || !password) return toast.error("Please fill all the fields");
-    if(password.length < 6) return toast.error("Password should be atleast 6 characters long");
-    const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-    if(!emailRegex.test(email)) return toast.error("Invalid Email");
-    dispatch(login(email,password))
-  }
+    emailjs
+      .sendForm(
+        "signin_service",
+        "template_4oa2a1b",
+        refForm.current,
+        "RJy48fHoAV--GvoIN"
+      )
 
-  useEffect(()=> {
-    if(isAuthenticated) {
-      navigate("/"); 
-    }
-  },[isAuthenticated,navigate])
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   emailjs
-  //     .sendForm(
-  //       "signin_service",
-  //       "template_4oa2a1b",
-  //       refForm.current,
-  //       "RJy48fHoAV--GvoIN"
-  //     )
-
-  //     .then(
-  //       () => {
-  //         alert("Message has been sent successfully!!");
-  //         window.location.reload(false);
-  //       },
-  //       () => {
-  //         alert("Failed to send your message! Please try again...");
-  //       }
-  //     );
-  // };
+      .then(
+        () => {
+          alert("Message has been sent successfully!!");
+          window.location.reload(false);
+        },
+        () => {
+          alert("Failed to send your message! Please try again...");
+        }
+      );
+  };
   return (
     <>
       <div className="main mt-5">
@@ -86,15 +64,23 @@ export default function Signin() {
          
             </div>
             <div className="signin-form mt-5">
-              <form ref={refForm} onSubmit={handleLogin}>
+              <form ref={refForm} onSubmit={sendEmail}>
                 <ul>
-                  <li className="">
+                  <li className="half">
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
+                      type="text"
+                      name="name"
+                      id=""
+                      placeholder="Name"
+                      required
+                    />
+                  </li>
+                  <li className="half">
+                    <input
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="email"
                       name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
                       id=""
                       placeholder="Email"
                       required
@@ -102,12 +88,10 @@ export default function Signin() {
                   </li>
                   <li>
                     <input
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
+                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-dark" : "text-dark"}`}
                       type="text"
                       placeholder="Password"
                       name="Type Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
                       required
                     />
                   </li>

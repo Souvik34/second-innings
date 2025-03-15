@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
+import About from "./components/About";
 import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import Gethome from "./components/Gethome";
@@ -18,9 +19,7 @@ import SignUp from "./components/Signup";
 import SignIn from "./components/Signin";
 import Lottie from "lottie-react";
 import lottie from "./components/images/loading.json";
-import {useDispatch, useSelector} from 'react-redux';
-import { loadUser } from "./redux/action.js"
-import toast from "react-hot-toast";
+import lottie1 from "./components/images/load.png";
 
 
 // import GetLocation from "./components/GetLocation";
@@ -30,47 +29,13 @@ import toast from "react-hot-toast";
 // import alanBtn from "@alan-ai/alan-sdk-web";
 
 function App() {
-  const dispatch = useDispatch();
-  const { error, message, loading } = useSelector(
-    (state) => state.user
-  );
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    dispatch(loadUser());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-      dispatch({ type: "clearError" });
-    }
-    if (message) {
-      toast.success(message);
-      dispatch({ type: "clearMessage" });
-    }
-  }, [dispatch, error, message]);
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const message = urlParams.get("message");
-    const status = urlParams.get("status");
-    if (message) {
-      if (status === "success") {
-        toast.success(message);
-      } else {
-        toast.error(message);
-      }
-      window.history.pushState({}, document.title, "/");
-    }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
   }, []);
-
-  // const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-  // }, []);
 
   return (
     <>
