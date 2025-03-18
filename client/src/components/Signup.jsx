@@ -119,12 +119,14 @@ export default function SignUp() {
             </div>
             <div className="signin-form mt-5">
               <form ref={refForm} onSubmit={handleSignup} encType="multipart/form-data">
-                <ul>
+              <ul className="flex flex-col items-center">
                   <li className="half">
+                    <label for="full_name" className="text-white p-2">📝Full name:</label>
                     <input
                       className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="text"
                       name="name"
+                      id="full_name"
                       placeholder="Full Name"
                       value={formData.name}
                       onChange={handleInputChange}
@@ -133,9 +135,11 @@ export default function SignUp() {
                   </li>
 
                   <li className="half">
+                  <label for="Email" className="text-white p-2">✉️E-mail id:</label>
                     <input
                       className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="email"
+                      id="Email"
                       name="email"
                       placeholder="Email"
                       value={formData.email}
@@ -145,10 +149,12 @@ export default function SignUp() {
                   </li>
 
                   <li>
+                  <label for="passcode" className="text-white p-2">🔐Password:</label>
                     <input
                       className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="password"
                       name="password"
+                      id="passcode"
                       placeholder="Password"
                       value={formData.password}
                       onChange={handleInputChange}
@@ -157,9 +163,11 @@ export default function SignUp() {
                   </li>
 
                   <li>
+                  <label for="confirm_password" className="text-white p-2">🔐Confirm Password:</label>
                     <input
                       className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="password"
+                      id="confirm_password"
                       name="confirmPassword"
                       placeholder="Confirm Password"
                       value={formData.confirmPassword}
@@ -169,8 +177,9 @@ export default function SignUp() {
                   </li>
 
                   <li>
+                  <label for="role" className="text-white p-2">💁Role:</label>
                     <select
-                      className={`w-100 p-2 rounded bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
+                      className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       name="role"
                       value={formData.role}
                       onChange={handleInputChange}
@@ -185,10 +194,12 @@ export default function SignUp() {
                   </li>
 
                   <li>
+                    <label for="phone" className="text-white p-2">📱Phone Number:</label>
                     <input
                       className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="text"
                       name="phone"
+                      id="phone"
                       placeholder="Phone (Optional)"
                       value={formData.phone}
                       onChange={handleInputChange}
@@ -196,10 +207,12 @@ export default function SignUp() {
                   </li>
 
                   <li>
-                    <input
+                    <label for="location" className="text-white p-2">📍Location:</label>
+                    <input 
                       className={`rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
                       type="text"
                       name="location"
+                      id="location"
                       placeholder="Location (Optional)"
                       value={formData.location}
                       onChange={handleInputChange}
@@ -207,7 +220,7 @@ export default function SignUp() {
                   </li>
 
                   <li>
-                    <label className="text-white">Upload Profile Image</label>
+                    <label className="text-white p-2">📷Upload Profile Image</label>
                     <br />
                     <input
                       type="file"
@@ -229,18 +242,19 @@ export default function SignUp() {
                     </li>
                   )}
 
-                  <div className="row mt-5 text-white">
-                    <li>
-                      Already have an account? <a href="/signin">Sign In Here.</a>
-                    </li>
-                    <li>
+                  {/* <div className="row mt-5 text-white"> */}
+                  <li  className="w-100 d-flex justify-content-center mt-3">
                       <input
                         type="submit"
                         className="flat-button button btn bg-warning"
                         value="Sign Up"
                       />
-                    </li>
-                  </div>
+                  </li>
+                  <li  className="w-100 d-flex justify-content-center mt-3">
+                      Already have an account? <a href="/signin">Sign In Here.</a>
+                  </li>
+                    
+                  {/* </div> */}
                 </ul>
               </form>
             </div>

@@ -87,25 +87,30 @@ export default function Signin() {
             </div>
             <div className="signin-form mt-5">
               <form ref={refForm} onSubmit={handleLogin}>
-                <ul>
-                  <li className="">
-                    <input
+                <ul className="d-flex flex-column">
+                  <li className="d-block mx-auto">
+                  <label for="email" className="text-white p-2">✉️E-mail:</label>
+                  <br></br>
+                    <input style={{ width: "18rem" }}
                       className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
                       type="email"
                       name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      id=""
+                      id="email"
                       placeholder="Email"
                       required
                     />
                   </li>
-                  <li>
-                    <input
+                  <li className="d-block mx-auto">
+                    <label for="password" className="text-white p-2">🔐Password:</label>
+                    <br></br>
+                    <input style={{ width: "18rem" }}
                       className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
                       type="text"
                       placeholder="Password"
                       name="Type Password"
+                      id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
@@ -122,16 +127,16 @@ export default function Signin() {
                       required
                     ></textarea>
                   </li> */}
-                  <div className="row mt-5 text-white fs-4">
-                  <li> New to Second Innings?<Link to="/signup" className="fa-fade"> SignUp Here.</Link></li>
-                  <li>
+                   <li className="d-block mx-auto pt-3">
                     <input
                       type="submit"
-                      className="flat-button button btn-info rounded-pill fs-4"
+                      className="flat-button button btn-info rounded-pill fs-4 text-center"
                       value="Submit"
                     />
                   </li>
-                  </div>
+                  {/* <div className="row text-white fs-10"> */}
+                  <li className="text-white fs-10 d-block mx-auto"> New to Second Innings?<Link to="/signup" className="fa-fade"> SignUp Here.</Link></li>
+                  {/* </div> */}
                 </ul>
               </form>
             </div>
