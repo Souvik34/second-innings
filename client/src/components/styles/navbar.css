@@ -98,3 +98,34 @@ li {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 /* .dropdown:hover .dropbtn {background-color: #ff8a8a;} */
+/* Navbar Link Default Styles */
+/* Navbar Link Default Styles */
+.navbar-nav .nav-item .nav-link p {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Underline Effect */
+.navbar-nav .nav-item .nav-link p::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #d97706; /* Orange color */
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* Hover Effect with Movement */
+.navbar-nav .nav-item .nav-link:hover p {
+  color: #d97706; /* Orange text on hover */
+  transform: translateY(-3px); /* Moves the text slightly up */
+}
+
+.navbar-nav .nav-item .nav-link:hover p::after {
+  width: 100%;
+  left: 0;
+}
