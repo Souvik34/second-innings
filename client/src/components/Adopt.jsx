@@ -1,16 +1,14 @@
 import React from 'react'
 import { useTheme } from "../context/ThemeContext";
 import "./styles/adopt.css";
+import { Link} from "react-router-dom";
 
 function Adopt() {
   const { theme } = useTheme();
   return (
    <>
-   <div className="container">
-    
-   
-   </div>
-   <form className='container mt-5'>
+
+   <form className='container mt-5 mx-auto'>
     
    <h2 className="heading my-2">
           <div className="codebird head-txt">
@@ -87,13 +85,13 @@ function Adopt() {
     <textarea  className={`form-control ${theme === "light" ? "bg-white text-dark" : "bg-dark text-light"}`} id="form6Example7" rows="4" placeholder='Additional Information' ></textarea>
     <label  className="form-label" for="form6Example7"></label>
   </div>
-
-  <a type="submit" href="mailto: secondinnings23@gmail.com" className={`btn ${theme === "light" ? "btn-primary" : "btn-light"} btn-block mb-4`}>Submit</a>
-
-  
+    <div className='d-block mx-auto text-center'>
+  <a type="submit" href="mailto: secondinnings23@gmail.com" className={`btn ${theme === "light" ? "btn-primary" : "btn-light"} m-4`}>Submit</a>
+  <br></br>
+  <Link to="/ruleandregulation" className='text-danger fs-2'>*** Rules & Regulations!!! ***</Link>
+  </div>
 </form>
-<a className='text-danger fs-2 mx-5' href='https://drive.google.com/file/d/1ejjqhgwyAp07gjrBXGrvLzekPc25DCAj/view?usp=sharing'>*** Rules & Regulations!!! ***</a>
-   </>
+</>
   )
 }
 
