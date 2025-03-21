@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/navbar.css";
-import "./styles/darkmode.css";
 import navpic from "./images/logo.png";
 import { useTheme } from "../context/ThemeContext";
 import { BsSunFill, BsMoonFill } from "react-icons/bs"

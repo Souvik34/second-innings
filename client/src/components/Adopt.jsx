@@ -1,6 +1,5 @@
 import React from 'react'
 import { useTheme } from "../context/ThemeContext";
-import "./styles/adopt.css";
 
 function Adopt() {
   const { theme } = useTheme();
