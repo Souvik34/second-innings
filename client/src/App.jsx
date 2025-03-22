@@ -16,6 +16,7 @@ import Volunteer from "./components/Volunteer";
 // import Faq from "./components/Faq";
 import SignUp from "./components/Signup";
 import SignIn from "./components/Signin";
+import RuleandRegulation from "./components/ruleandregulation.jsx";
 import Lottie from "lottie-react";
 import lottie from "./components/images/loading.json";
 import {useDispatch, useSelector} from 'react-redux';
@@ -104,6 +105,11 @@ function App() {
               exact
               path="adopt"
               element={<Adopt key="adopt" />}
+            ></Route>
+            <Route
+              exact
+              path="ruleandregulation"
+              element={<RuleandRegulation key="ruleandregulation" />}
             ></Route>
              <Route exact path="gallery" element= {<Gallery/>}/>
             <Route
