@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/action.js"
 import toast from "react-hot-toast"
+import { GoEye,GoEyeClosed } from "react-icons/go";
 
 export default function Signin() {
   const refForm = useRef();
@@ -16,6 +17,7 @@ export default function Signin() {
 
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [showPassword,setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -105,16 +107,27 @@ export default function Signin() {
                   <li className="d-block mx-auto">
                     <label for="password" className="text-white p-2">🔐Password:</label>
                     <br></br>
-                    <input style={{ width: "18rem" }}
-                      className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
-                      type="text"
-                      placeholder="Password"
-                      name="Type Password"
-                      id="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
+                    <div className="d-flex relative align-items-center">
+                      <input style={{ width: "18rem" }}
+                        className={`rounded-pill bg-${theme} ${theme === "dark" ? "text-light" : "text-dark"}`}
+                        type={`${showPassword ? "text" : "password"}`}
+                        placeholder="Password"
+                        name="Type Password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                      {
+                        showPassword ?
+                        <GoEyeClosed className="fs-4 password-icon" onClick={() => setShowPassword(false)} 
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                        />:
+                        <GoEye className="fs-4 password-icon" onClick={() => setShowPassword(true)}
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                      />
+                    }
+                  </div>
                   </li>
                   {/* <li>
                     <textarea

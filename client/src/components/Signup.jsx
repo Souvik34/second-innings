@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast'
 import { signup } from "../redux/action.js";
+import { GoEye,GoEyeClosed } from "react-icons/go";
 
 export default function SignUp() {
   const refForm = useRef();
@@ -28,6 +29,9 @@ export default function SignUp() {
     profileImage: null,
     profileImagePreview: null, 
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -150,9 +154,10 @@ export default function SignUp() {
 
                   <li>
                   <label for="passcode" className="text-white p-2">🔐Password:</label>
+                  <div className="d-flex relative align-items-center">
                     <input
                       className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
-                      type="password"
+                      type={`${showPassword ? "text" : "password"}`}
                       name="password"
                       id="passcode"
                       placeholder="Password"
@@ -160,13 +165,24 @@ export default function SignUp() {
                       onChange={handleInputChange}
                       required
                     />
+                      {
+                        showPassword ?
+                        <GoEyeClosed className="fs-4 password-icon" onClick={() => setShowPassword(false)} 
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                        />:
+                        <GoEye className="fs-4 password-icon" onClick={() => setShowPassword(true)}
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                      />
+                      }
+                    </div>
                   </li>
 
                   <li>
                   <label for="confirm_password" className="text-white p-2">🔐Confirm Password:</label>
+                  <div className="d-flex relative align-items-center">
                     <input
                       className={`w-100 p-2 rounded-pill bg-${theme} ${theme === 'dark' ? 'text-white' : 'text-dark'}`}
-                      type="password"
+                      type={`${showConfirmPassword ? "text" : "password"}`}
                       id="confirm_password"
                       name="confirmPassword"
                       placeholder="Confirm Password"
@@ -174,6 +190,16 @@ export default function SignUp() {
                       onChange={handleInputChange}
                       required
                     />
+                      {
+                        showConfirmPassword ?
+                        <GoEyeClosed className="fs-4 password-icon" onClick={() => setShowConfirmPassword(false)} 
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                        />:
+                        <GoEye className="fs-4 password-icon" onClick={() => setShowConfirmPassword(true)}
+                        color={`${theme === "dark" ? "white" : "black"}`}
+                      />
+                      }
+                  </div>
                   </li>
 
                   <li>
